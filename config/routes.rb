@@ -18,6 +18,8 @@ Rails.application.routes.draw do
       get "kit_items_only", to: "kit_items#index_kit_items_only"
       post "kit_items_only", to: "kit_items#create_kit_items_only"
       patch "kit_items_only/:id", to: "kit_items#update_kit_items_only"
+      post 'create-checkout-session', to: 'checkout#create'
+      get 'checkout-session/:id', to: 'checkout#show'
       resources :users
       resources :donations
       resources :contacts
