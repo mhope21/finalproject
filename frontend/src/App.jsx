@@ -1,4 +1,3 @@
-import './App.css';
 import {BrowserRouter as Router, Routes, Route, Navigate} from "react-router-dom";
 import PageWrapper from './components/PageWrapper';
 import Home from './components/pages/Home';
@@ -21,6 +20,12 @@ import NewUser from './components/NewUser';
 import AddNew from './components/pages/AddNew';
 import NewKitItem from './components/NewKitItem';
 import AddItemToKit from './components/AddItemToKit';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+import CheckoutForm from './components/CheckoutForm';
+import { STRIPE_PK } from './constants';
+
+const stripePromise = loadStripe(STRIPE_PK);
 
 
 
@@ -96,7 +101,8 @@ function App() {
     <>    
     <div className="App">
       <Router>
-        <PageWrapper loggedIn={loggedIn} setLoggedIn={setLoggedIn} setUser={setUser} user={user}>                   
+        <PageWrapper loggedIn={loggedIn} setLoggedIn={setLoggedIn} setUser={setUser} user={user}>
+          <Elements stripe={stripePromise} >           
           <ScrollToHash/>
            <Routes>
             <Route path="/" element={<Home />} />
@@ -107,6 +113,7 @@ function App() {
             <Route path="/registration" element={<Registration />} />
             <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />}/>
             <Route path="/confirmation" element={<Confirmation user={user}/> } />
+            <Route path="/checkout" element={<CheckoutForm />} />
             <Route path="/donation" element={<Donation user={user}/>} />
             <Route path="/speaker" element={<RequestSpeaker/>}/>
             <Route path="/admin" element={user && user.role === 'admin' ? <AdminDashboard user={user} /> : <Navigate to="/" />} />
@@ -117,7 +124,8 @@ function App() {
               <Route path="add_item_to_kit" element={<AddNew header="Add New Kit Item To Kit"><AddItemToKit /></AddNew>} />
             </Route>
           </Routes>
-        </PageWrapper>
+         </Elements>
+          </PageWrapper>
       </Router>
     </div>
   </>

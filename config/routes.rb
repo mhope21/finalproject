@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       resources :users
       resources :donations
       resources :contacts
+      resources :charges, only: [:create]
       resources :kit_requests, only: [ :index, :create, :show, :update, :destroy ] do
         collection do
           get "current", to: "kit_requests#current"
