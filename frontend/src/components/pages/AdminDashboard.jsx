@@ -231,7 +231,7 @@ const AdminDashboard = ({ user }) => {
         >
           
           <a className="navbar-brand text-uppercase text-white">
-          <i class="bi bi-graph-up text-white me-3"></i> Admin Dashboard
+          <i className="bi bi-graph-up text-white me-3"></i> Admin Dashboard
           </a>
           
         </div>

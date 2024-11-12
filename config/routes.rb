@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get "/current_user", to: "current_user#index"
+  post 'webhooks/stripe', to: 'webhooks#stripe'
   devise_for :users, path: "", path_names: {
     sign_in: "login",
     sign_out: "logout",
@@ -21,9 +22,13 @@ Rails.application.routes.draw do
       post 'create-checkout-session', to: 'checkout#create'
       get 'checkout-session/:id', to: 'checkout#show'
       resources :users
-      resources :donations
+      resources :donations do
+        collection do
+          get 'success'
+          get 'cancel'
+        end
+      end
       resources :contacts
-      resources :charges, only: [:create]
       resources :kit_requests, only: [ :index, :create, :show, :update, :destroy ] do
         collection do
           get "current", to: "kit_requests#current"
