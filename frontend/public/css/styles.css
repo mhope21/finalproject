@@ -11,6 +11,10 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 :root {
+  --fc-today-bg-color: #dee2e6;
+  --fc-today-border-color: #343a40;
+  --fc-event-bg-color: #fada69;
+  --fc-event-border-color: #fada69;
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
   --bs-purple: #6f42c1;
@@ -89,6 +93,14 @@
   :root {
     scroll-behavior: smooth;
   }
+}
+
+.fc .fc-col-header-cell-cushion {
+  color: black !important;
+}
+
+.fc .fc-daygrid-day-number {
+  color: black !important;
 }
 
 body {

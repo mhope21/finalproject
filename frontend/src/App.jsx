@@ -25,6 +25,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { STRIPE_PK } from './constants';
 import CancelPage from "./components/pages/CancelPage";
 import SuccessPage from "./components/pages/SuccessPage";
+import Calendar from "./components/Calendar";
 
 
 const stripePromise = loadStripe(STRIPE_PK);
@@ -115,6 +116,7 @@ function App() {
             <Route path="/registration" element={<Registration />} />
             <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />}/>
             <Route path="/confirmation" element={<Confirmation user={user}/> } />
+            <Route path="/calendar" element={<Calendar />} />
             <Route path="/success" element={<SuccessPage />} />
             <Route path="/cancel" element={<CancelPage />} />
             <Route path="/donation" element={<Donation user={user}/>} />

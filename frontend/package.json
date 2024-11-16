@@ -10,6 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fullcalendar/daygrid": "^6.1.15",
+    "@fullcalendar/interaction": "^6.1.15",
+    "@fullcalendar/react": "^6.1.15",
+    "@fullcalendar/timegrid": "^6.1.15",
     "@stripe/react-stripe-js": "^2.8.1",
     "@stripe/stripe-js": "^4.9.0",
     "bootstrap": "^5.3.3",
@@ -21,6 +25,7 @@
     "react-bootstrap": "^2.10.5",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.3.1",
+    "react-modal": "^3.16.1",
     "react-router-dom": "^6.26.2",
     "react-toastify": "^10.0.5"
   },
