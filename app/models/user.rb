@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :kit_requests
   has_many :donations, -> { where(canceled: false) }
   has_many :contacts
+  has_many :bookings
 
   before_create :set_default_role
 
