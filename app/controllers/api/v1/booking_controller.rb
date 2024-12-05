@@ -24,7 +24,7 @@ class Api::V1::BookingController < ApplicationController
 
   def cancel
     @booking = Booking.find(params[:id])
-    @event = @booking.event 
+    @event = @booking.event
 
     # Check if `original_color` parameter exists and is provided
     if params[:original_color].present?
